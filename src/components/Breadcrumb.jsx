@@ -35,7 +35,7 @@ const Breadcrumb = () => {
 
             return (
               <li key={index} className="flex items-center">
-                <span className="mx-1 text-gray-400">›</span>
+                <span className="mx-1 text-gray-400">/</span>
                 {isLast ? (
                   <span className="text-gray-500 font-medium">{name}</span>
                 ) : (
