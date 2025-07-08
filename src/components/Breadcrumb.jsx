@@ -3,20 +3,23 @@ import { Link, useLocation } from "react-router-dom";
 const Breadcrumb = () => {
   const location = useLocation();
 
-  // Get current path segments (e.g., ["cart", "order"])
-  const paths = location.pathname.split("/").filter(Boolean);
+  // Get path segments and filter out long token-like hashes
+  const paths = location.pathname
+    .split("/")
+    .filter(Boolean)
+    .filter((segment) => !/^[a-f0-9]{32,}$/.test(segment)); // ⛔️ Filter token/hash
 
-  // ✅ Optional: Don't show breadcrumb on Home page
+  // ✅ Hide breadcrumb on Home page
   if (paths.length === 0) return null;
 
   let fullPath = "";
 
   return (
-    <div className="w-full max-w-[73rem] mx-auto flex justify-start">
+    <div className="w-full max-w-[73rem] mx-auto mt-3 flex justify-start">
       <nav className="text-sm px-4 mt-3 text-gray-700">
         <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <li>
-            <Link to="/" className="text-blue-600 hover:underline font-medium">
+            <Link to="/" className="text-blue-900 hover:underline font-medium">
               Home
             </Link>
           </li>
@@ -38,7 +41,7 @@ const Breadcrumb = () => {
                 ) : (
                   <Link
                     to={fullPath}
-                    className="text-blue-600 hover:underline font-medium"
+                    className="text-blue-900 hover:underline font-medium"
                   >
                     {name}
                   </Link>
