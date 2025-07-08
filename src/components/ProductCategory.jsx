@@ -7,10 +7,10 @@ const CategorySkeleton = () => (
   <div>
     {/* 🔹 Mobile Skeleton (3 per row) */}
     <div className="grid grid-cols-4 gap-3 mb-6 sm:hidden">
-      {Array.from({ length: 6 }).map((_, index) => (
+      {Array.from({ length: 8 }).map((_, index) => (
         <div
           key={index}
-          className="flex flex-col items-center p-3 bg-white border border-gray-200 rounded-lg shadow animate-pulse"
+          className="flex flex-col items-center py-3 bg-white border border-gray-200 rounded-lg shadow animate-pulse"
         >
           <div className="w-14 h-14 bg-gray-300 rounded mb-2" />
           <div className="w-16 h-3 bg-gray-300 rounded" />
@@ -23,7 +23,7 @@ const CategorySkeleton = () => (
       {Array.from({ length: 16 }).map((_, index) => (
         <div
           key={index}
-          className="flex flex-col items-center p-3 bg-white border border-gray-200 rounded-lg shadow animate-pulse"
+          className="flex flex-col items-center py-3 bg-white border border-gray-200 rounded-lg shadow animate-pulse"
         >
           <div className="w-14 h-14 bg-gray-300 rounded mb-2" />
           <div className="w-16 h-3 bg-gray-300 rounded" />

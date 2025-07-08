@@ -66,7 +66,10 @@ const MyOrder = () => {
               <h4 className="font-semibold mb-1 text-sm">🧾 Items:</h4>
               <ul className="text-sm list-disc ml-5">
                 {order.items.map((item, idx) => {
-                  const unit = item.unit || "";
+                  const variant =
+                    order.variants?.find((v) => v.unit === item.selectedUnit) ||
+                    {};
+                  const unit = variant.unit || item.selectedUnit || "";
                   const price = item.price || 0;
                   const quantity = item.quantity || 1;
                   return (
