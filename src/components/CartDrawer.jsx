@@ -31,7 +31,7 @@ const CartDrawer = () => {
                 key={index}
                 src={src}
                 alt="cart item"
-                className="w-5 h-5 rounded-full border-2 border-white object-cover"
+                className="w-7 h-7 rounded-full border-2 border-white object-cover"
               />
             ))}
           </div>

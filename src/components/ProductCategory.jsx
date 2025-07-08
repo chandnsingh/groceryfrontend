@@ -6,7 +6,7 @@ import api from "../api";
 const CategorySkeleton = () => (
   <div>
     {/* 🔹 Mobile Skeleton (3 per row) */}
-    <div className="grid grid-cols-3 gap-3 mb-6 sm:hidden">
+    <div className="grid grid-cols-4 gap-3 mb-6 sm:hidden">
       {Array.from({ length: 6 }).map((_, index) => (
         <div
           key={index}

@@ -72,13 +72,36 @@ export const CartProvider = ({ children }) => {
     const unit = selectedUnit || product.variants?.[0]?.unit || product.unit;
     const price = getVariantPrice(product, unit);
 
-    try {
-      const existingItem = cart.find(
-        (item) =>
-          item.productId._id === product._id && item.selectedUnit === unit
-      );
-      const newQuantity = existingItem ? existingItem.quantity + 1 : 1;
+    const existingItem = cart.find(
+      (item) => item.productId._id === product._id && item.selectedUnit === unit
+    );
 
+    const newQuantity = existingItem ? existingItem.quantity + 1 : 1;
+
+    // ✅ Optimistic update (update cart instantly)
+    const optimisticCart = [...cart];
+
+    if (existingItem) {
+      const updated = optimisticCart.map((item) =>
+        item.productId._id === product._id && item.selectedUnit === unit
+          ? { ...item, quantity: newQuantity }
+          : item
+      );
+      setCart(updated);
+    } else {
+      optimisticCart.push({
+        productId: product,
+        selectedUnit: unit,
+        price,
+        quantity: 1,
+      });
+      setCart(optimisticCart);
+    }
+
+    triggerCartDrawer(); // ✅ open cart immediately
+
+    // ⏳ Background sync with backend
+    try {
       await axios.post(
         `${BASE_URL}/cart`,
         {
@@ -90,8 +113,8 @@ export const CartProvider = ({ children }) => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      await fetchCart();
-      triggerCartDrawer();
+      // Refresh cart in background (optional)
+      fetchCart();
     } catch (err) {
       console.error(
         "❌ Error adding to cart:",

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../api";
 
 const AdminPanel = () => {
@@ -18,14 +17,7 @@ const AdminPanel = () => {
   const [uploading, setUploading] = useState(false);
   const [search, setSearch] = useState("");
 
-  const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
-
   useEffect(() => {
-    if (!user?.isAdmin) {
-      navigate("/");
-      return;
-    }
     fetchProducts();
   }, []);
 
@@ -154,7 +146,6 @@ const AdminPanel = () => {
             required
             className="p-2 border rounded"
           />
-
           <input
             type="text"
             name="description"
@@ -215,12 +206,10 @@ const AdminPanel = () => {
             ➕ Add Variant
           </button>
         </div>
-        <div className="mt-4">
-          <div className="mb-3">
-            <label className="font-medium ">Rating and Reviews</label>
-          </div>
 
-          <div className="flex gap-3">
+        <div className="mt-4">
+          <label className="font-medium">Rating and Reviews</label>
+          <div className="flex gap-3 mt-2">
             <input
               type="number"
               name="rating"
@@ -230,9 +219,8 @@ const AdminPanel = () => {
               step="0.1"
               min="0"
               max="5"
-              className="w-30 px-2 border rounded"
+              className="px-2 border rounded"
             />
-
             <input
               type="number"
               name="reviews"
