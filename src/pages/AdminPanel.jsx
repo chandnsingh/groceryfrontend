@@ -209,7 +209,7 @@ const AdminPanel = () => {
 
         <div className="mt-4">
           <label className="font-medium">Rating and Reviews</label>
-          <div className="flex gap-3 mt-2">
+          <div className="flex max-w-2xl gap-3 mt-2">
             <input
               type="number"
               name="rating"
@@ -219,7 +219,7 @@ const AdminPanel = () => {
               step="0.1"
               min="0"
               max="5"
-              className="px-2 border rounded"
+              className="px-3 w-1/2 border rounded"
             />
             <input
               type="number"
@@ -227,7 +227,7 @@ const AdminPanel = () => {
               placeholder="No. of Reviews"
               value={form.reviews}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 w-1/2 border rounded"
             />
           </div>
         </div>
