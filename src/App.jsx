@@ -22,6 +22,7 @@ import TermsAndConditions from "./pages/TermsAndCondition";
 import { CartProvider } from "./context/CartContext";
 import AdminRoute from "./components/AdminRoutes";
 import GuestRoute from "./components/GuestRoute";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -88,6 +89,7 @@ function App() {
               <Route element={<AdminRoute />}>
                 <Route path="/admin" element={<AdminPanel />} />
               </Route>
+              <Route path="/product/:id" element={<ProductPage />} />
             </Routes>
           </main>
 

@@ -39,22 +39,10 @@ const CartPage = () => {
 
   return (
     <div className="mx-auto px-4 py-6 max-w-[73rem] min-h-[80vh]">
-      <motion.h2
-        className="text-2xl font-bold"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        My Cart
-      </motion.h2>
+      <h2 className="text-2xl font-bold">My Cart</h2>
 
       {cart.length === 0 ? (
-        <motion.div
-          className="flex items-center justify-center h-80 flex-col"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="flex items-center justify-center h-80 flex-col">
           <img
             src="https://www.jiomart.com/msassets/images/empty-cart.svg"
             alt="empty"
@@ -66,14 +54,9 @@ const CartPage = () => {
           <Link className="text-blue-600 hover:underline mt-1" to="/">
             or continue shopping
           </Link>
-        </motion.div>
+        </div>
       ) : (
-        <motion.div
-          className="flex flex-col lg:flex-row gap-6 mt-5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="flex flex-col lg:flex-row gap-6 mt-5">
           {/* Cart Items */}
           <div className="w-full lg:w-2/3 p-6 rounded-lg border border-gray-300 bg-white shadow-md">
             <div className="flex justify-between mb-4">
@@ -105,10 +88,9 @@ const CartPage = () => {
                 incLoadingId === `${product._id}-${selectedUnit}`;
 
               return (
-                <motion.div
+                <div
                   key={`${product._id}-${selectedUnit}`}
                   className="mb-5 border-b pb-4"
-                  whileHover={{ scale: 1.01 }}
                 >
                   <div className="flex gap-5 items-center">
                     <img
@@ -180,18 +162,13 @@ const CartPage = () => {
                       </motion.button>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
 
           {/* Payment Summary */}
-          <motion.div
-            className="w-full lg:w-1/3 flex flex-col gap-4"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="w-full lg:w-1/3 flex flex-col gap-4">
             <div className="rounded-lg p-6 border border-gray-300 bg-white shadow-md">
               <p className="text-xl font-bold mb-4">Payment Details</p>
               <Payment label="MRP Total" info={`₹${formattedMRP}`} />
@@ -225,8 +202,8 @@ const CartPage = () => {
                 Place Order
               </Link>
             </motion.div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -47,34 +48,44 @@ const CardItem = (props) => {
   const reviews = props.reviews || 0;
 
   return (
-    <div className="flex flex-col justify-between h-full  relative">
-      <div className="relative w-full  rounded-lg shadow-md overflow-hidden">
-        <div className="relative w-full h-36">
-          <img
-            src={props.img}
-            alt={props.name}
-            className={`w-full h-full object-cover rounded-t-lg transition-opacity duration-300 ${
-              !product.inStock ? "opacity-40 blur-sm" : ""
-            }`}
-          />
+    <div className="flex flex-col justify-between h-full relative">
+      {/* 🔗 Clickable Image */}
+      <Link
+        to={`/product/${productId}`}
+        state={{ name: product.name, category: product.category }}
+        className="relative w-full h-36 block"
+      >
+        <img
+          src={props.img}
+          alt={props.name}
+          className={`w-full h-full object-cover rounded-t-lg transition-opacity duration-300 ${
+            !product.inStock ? "opacity-40 blur-sm" : ""
+          }`}
+        />
 
-          {discountValue > 0 && (
-            <div className="absolute top-0 left-0 bg-green-800 text-white px-2 font-sans font-semibold text-[0.6rem] p-1 rounded-br-md z-10">
-              {selectedVariant.discount} OFF
-            </div>
-          )}
+        {discountValue > 0 && (
+          <div className="absolute top-0 left-0 bg-green-800 text-white px-2 font-sans font-semibold text-[0.6rem] p-1 rounded-br-md z-10">
+            {selectedVariant.discount} OFF
+          </div>
+        )}
 
-          {!product.inStock && (
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <p className="bg-red-500 text-white px-2 py-1 rounded text-xs">
-                Out of Stock
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
+        {!product.inStock && (
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <p className="bg-red-500 text-white px-2 py-1 rounded text-xs">
+              Out of Stock
+            </p>
+          </div>
+        )}
+      </Link>
 
-      <h1 className="my-2 mx-2 font-semibold text-md truncate">{props.name}</h1>
+      {/* 🔗 Clickable Title */}
+      <Link
+        to={`/product/${productId}`}
+        state={{ name: product.name, category: product.category }}
+        className="my-2 mx-2 font-semibold text-md truncate hover:underline"
+      >
+        {props.name}
+      </Link>
 
       <select
         className="w-full max-w-[180px] p-1 border border-gray-300 rounded-md text-xs"
@@ -99,12 +110,11 @@ const CardItem = (props) => {
       </div>
 
       <div className="pb-2 flex items-center">
-        <div className="flex items-center ">
+        <div className="flex items-center">
           {[...Array(5)].map((_, i) => {
-            const fillPercent = Math.max(0, Math.min(1, rating - i)); // 0 to 1
+            const fillPercent = Math.max(0, Math.min(1, rating - i));
             return (
               <div key={i} className="relative w-4 h-4">
-                {/* Background (gray) */}
                 <svg
                   viewBox="0 0 20 20"
                   className="absolute top-0 left-0 w-full h-full text-gray-300"
@@ -113,7 +123,6 @@ const CardItem = (props) => {
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
 
-                {/* Foreground (yellow, clipped) */}
                 <svg
                   viewBox="0 0 20 20"
                   className="absolute top-0 left-0 w-full h-full text-yellow-400"

@@ -70,7 +70,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
               alt="store"
             />
             <h1 className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
-              JMD Store
+              JMB Store
             </h1>
           </div>
 

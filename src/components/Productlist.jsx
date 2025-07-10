@@ -127,7 +127,11 @@ const ProductList = ({ searchTerm }) => {
       {Object.entries(grouped).map(([category, items]) => {
         const isExpanded = expandedCategories[category];
         const showToggle = items.length > 6;
-        const visible = isExpanded ? items : items.slice(0, 6);
+
+        // 👇 Limit count based on screen size using JS (for now)
+        const isMobile = window.innerWidth < 640; // Tailwind's `sm` breakpoint
+        const visibleCount = isMobile ? 4 : 6;
+        const visible = isExpanded ? items : items.slice(0, visibleCount);
 
         return (
           <div
@@ -138,9 +142,10 @@ const ProductList = ({ searchTerm }) => {
               <h2 className="text-lg font-serif font-semibold capitalize text-gray-800">
                 {category}
               </h2>
-              {showToggle && (
+
+              {items.length > visibleCount && (
                 <button
-                  className="text-sm text-blue-600 hover:underline"
+                  className="text-sm text-blue-900 font-bold cursor-pointer hover:underline"
                   onClick={() => toggleViewAll(category)}
                 >
                   {isExpanded ? "Hide" : "View All"}

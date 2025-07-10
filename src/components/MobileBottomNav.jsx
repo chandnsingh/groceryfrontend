@@ -1,5 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Search, ShoppingCart } from "lucide-react";
+import {
+  Home,
+  Search,
+  ShoppingCart,
+  ListChecks, // ✅ Lucide icon for orders
+} from "lucide-react";
 
 const MobileBottomNav = () => {
   const location = useLocation();
@@ -39,6 +44,18 @@ const MobileBottomNav = () => {
         >
           <ShoppingCart size={20} />
           Cart
+        </Link>
+
+        <Link
+          to="/my-orders"
+          className={`flex flex-col items-center text-xs ${
+            isActive("/my-orders")
+              ? "text-blue-600 font-semibold"
+              : "text-gray-500"
+          }`}
+        >
+          <ListChecks size={20} />
+          Orders
         </Link>
       </div>
     </div>
