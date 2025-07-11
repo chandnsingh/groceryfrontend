@@ -24,6 +24,8 @@ import AdminRoute from "./components/AdminRoutes";
 import GuestRoute from "./components/GuestRoute";
 import ProductPage from "./pages/ProductPage";
 
+import OrderDetails from "./pages/OrderDetails";
+
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -90,6 +92,7 @@ function App() {
                 <Route path="/admin" element={<AdminPanel />} />
               </Route>
               <Route path="/product/:id" element={<ProductPage />} />
+              <Route path="/order-details/:id" element={<OrderDetails />} />
             </Routes>
           </main>
 

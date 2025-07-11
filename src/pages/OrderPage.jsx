@@ -50,6 +50,7 @@ const OrderPage = () => {
         price,
         discount,
         quantity: item.quantity,
+        image: product.image || "", // ✅ this fixes your issue
       };
     });
 
@@ -160,17 +161,37 @@ const OrderPage = () => {
 
               return (
                 <li key={index}>
-                  {name} ({unit}) × {quantity} = ₹{itemTotal.toFixed(2)}
-                  {discount > 0 && (
-                    <span className="text-xs text-gray-400 line-through ml-1">
-                      ₹{itemMRP.toFixed(2)}
-                    </span>
-                  )}
+                  <div className="flex justify-between p-[.6rem]">
+                    <div className="flex gap-3 ">
+                      <div className="w-12 h-12 border rounded-md border-gray-300 shadow-lg">
+                        <img className="p-1" src={product.image} alt="" />
+                      </div>
+
+                      <div>
+                        <h1 className="font-bold text-md">{name}</h1>
+                        <p className="text-gray-400 font-semibold">
+                          {" "}
+                          ({unit}) × {quantity}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-1 mt-1">
+                      <p className="text-md font-bold">
+                        {" "}
+                        ₹{(discountedPrice * item.quantity).toFixed(2)}{" "}
+                      </p>
+                      <p className="text-sm text-gray-500 font-semibold line-through">
+                        {" "}
+                        ₹{(originalPrice * item.quantity).toFixed(2)}{" "}
+                      </p>
+                    </div>
+                  </div>
                 </li>
               );
             })}
 
-            <li className="font-bold mt-2">
+            <li className="font-bold m-2">
               Total: ₹
               {cart
                 .reduce((sum, item) => {

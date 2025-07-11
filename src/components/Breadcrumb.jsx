@@ -2,17 +2,17 @@ import { Link, useLocation } from "react-router-dom";
 
 const Breadcrumb = () => {
   const location = useLocation();
+  const state = location.state || {};
 
+  // Split path and remove long IDs (like Mongo ObjectIds)
   const paths = location.pathname
     .split("/")
     .filter(Boolean)
-    .filter((segment) => !/^[a-f0-9]{32,}$/.test(segment)); // remove long IDs
+    .filter((segment) => !/^[a-f\d]{24}$/i.test(segment)); // Remove :id
 
   if (paths.length === 0) return null;
 
   let fullPath = "";
-
-  const state = location.state || {};
 
   return (
     <div className="w-full max-w-[73rem] mx-auto mt-3 flex justify-start">
@@ -28,7 +28,6 @@ const Breadcrumb = () => {
             fullPath += `/${segment}`;
             const isLast = index === paths.length - 1;
 
-            // 👇 Custom label logic
             let name;
             if (segment === "product" && state.category && !isLast) {
               name =
@@ -51,7 +50,7 @@ const Breadcrumb = () => {
                   <Link
                     to={fullPath}
                     className="text-blue-900 hover:underline font-medium"
-                    state={state} // 👈 Pass state to keep name/category on navigation
+                    state={state}
                   >
                     {name}
                   </Link>

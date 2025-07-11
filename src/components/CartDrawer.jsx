@@ -1,15 +1,19 @@
 import { useCart } from "../context/CartContext";
-import { useNavigate, useLocation } from "react-router-dom"; // ⬅️ import useLocation
+import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CartDrawer = () => {
   const { cart, showCartDrawer, setShowCartDrawer } = useCart();
   const navigate = useNavigate();
-  const location = useLocation(); // ⬅️ Get current route
+  const location = useLocation();
 
-  // ⛔ Don't show if not on homepage or if cart drawer is off or empty cart
-  if (location.pathname !== "/" || !showCartDrawer || cart.length === 0)
+  // ⛔ Don't show if drawer is off, cart is empty, or on /cart page
+  if (
+    !showCartDrawer ||
+    cart.length === 0 ||
+    !/^\/$|^\/product\/[^/]+$/.test(location.pathname)
+  )
     return null;
 
   const itemImages = cart
@@ -52,7 +56,7 @@ const CartDrawer = () => {
           </p>
         </div>
 
-        {/* Chevron icon for visual cue */}
+        {/* Chevron icon */}
         <div className="bg-green-700 hover:bg-green-800 rounded-full p-2 pointer-events-none">
           <ChevronRight size={20} />
         </div>
