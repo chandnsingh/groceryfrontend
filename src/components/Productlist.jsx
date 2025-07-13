@@ -90,7 +90,7 @@ const ProductList = ({ searchTerm }) => {
   const renderCard = (product) => (
     <div
       key={product._id}
-      className="bg-gradient-to-r from-[#d5eceb] via-[#e9f1f0] to-[#fbfbfb] w-full p-4 rounded-lg shadow-md border border-gray-300"
+      className="bg-gradient-to-r from-[#d5eceb] via-[#e9f1f0] to-[#fbfbfb] w-full p-3 rounded-lg shadow-md border border-gray-300"
     >
       <CardItem
         productData={product}
@@ -111,8 +111,8 @@ const ProductList = ({ searchTerm }) => {
 
   if (categoryName) {
     return (
-      <div className="bg-gray-100 mx-auto max-w-[73rem] mt-6 p-3">
-        <h2 className="text-xl font-bold capitalize text-gray-800 mb-5 px-2">
+      <div className="bg-white border border-gray-200 rounded-xl shadow-md mx-auto max-w-[73rem] mt-6 p-3">
+        <h2 className="text-lg font-serif font-semibold capitalize text-gray-800 p-2 mb-3">
           {categoryName}
         </h2>
         <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
@@ -123,7 +123,7 @@ const ProductList = ({ searchTerm }) => {
   }
 
   return (
-    <div className="bg-gray-100 mx-auto max-w-[73rem] mt-6 p-2">
+    <div className="bg-gray-100 mx-auto max-w-[73rem] mt-6 p-3">
       {Object.entries(grouped).map(([category, items]) => {
         const isExpanded = expandedCategories[category];
         const showToggle = items.length > 6;
@@ -136,9 +136,9 @@ const ProductList = ({ searchTerm }) => {
         return (
           <div
             key={category}
-            className="bg-white rounded-lg p-2 mb-10 shadow-sm"
+            className="bg-white rounded-lg p-3 mb-10 shadow-sm"
           >
-            <div className="flex justify-between items-center mb-5">
+            <div className="flex justify-between items-center p-2 mb-3">
               <h2 className="text-lg font-serif font-semibold capitalize text-gray-800">
                 {category}
               </h2>

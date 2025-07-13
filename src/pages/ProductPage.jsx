@@ -27,6 +27,17 @@ const ProductPage = () => {
     };
     fetchProduct();
   }, [id]);
+  // Dynamically manage scroll based on previewSrc
+  useEffect(() => {
+    if (previewSrc) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [previewSrc]);
 
   if (!product || !selectedVariant) return <div className="p-8"></div>;
 

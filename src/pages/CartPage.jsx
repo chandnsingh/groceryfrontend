@@ -42,25 +42,31 @@ const CartPage = () => {
       <h2 className="text-2xl font-bold">My Cart</h2>
 
       {cart.length === 0 ? (
-        <div className="flex items-center justify-center h-80 flex-col">
+        <div className="flex items-center justify-center h-90 flex-col">
           <img
             src="https://www.jiomart.com/msassets/images/empty-cart.svg"
             alt="empty"
           />
-          <p className="font-bold mt-2">Cart is empty</p>
+          <p className="font-bold mt-4">Cart is empty</p>
           <p className="font-semibold text-gray-700">
             It's a nice day to buy the items you saved for later!
           </p>
-          <Link className="text-blue-600 hover:underline mt-1" to="/">
-            or continue shopping
-          </Link>
+          <p>
+            or{" "}
+            <Link
+              className="text-blue-700 font-bold hover:underline mt-1"
+              to="/"
+            >
+              continue shopping
+            </Link>
+          </p>
         </div>
       ) : (
         <div className="flex flex-col lg:flex-row gap-6 mt-5">
           {/* Cart Items */}
           <div className="w-full lg:w-2/3 p-6 rounded-lg border border-gray-300 bg-white shadow-md">
             <div className="flex justify-between mb-4">
-              <p className="text-lg font-bold">
+              <p className="text-lg font-bold mb-2">
                 Your Basket{" "}
                 <span className="text-gray-400">({cart.length})</span>
               </p>
@@ -90,7 +96,7 @@ const CartPage = () => {
               return (
                 <div
                   key={`${product._id}-${selectedUnit}`}
-                  className="mb-5 border-b pb-4"
+                  className="mb-5 border-b border-gray-200 pb-6"
                 >
                   <div className="flex gap-5 items-center">
                     <img
