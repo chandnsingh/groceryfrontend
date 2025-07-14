@@ -58,13 +58,13 @@ const CardItem = (props) => {
         <img
           src={props.img}
           alt={props.name}
-          className={`w-full h-full object-cover rounded-t-lg transition-opacity duration-300 ${
+          className={`w-full h-full object-cover rounded-md transition-opacity duration-300 ${
             !product.inStock ? "opacity-40 blur-sm" : ""
           }`}
         />
 
         {discountValue > 0 && (
-          <div className="absolute top-0 left-0 bg-green-800 text-white px-2 font-sans font-semibold text-[0.6rem] p-1 rounded-br-md z-10">
+          <div className="absolute top-0 left-0 bg-green-800 text-white px-2 font-sans font-bold text-[0.6rem] p-1 rounded-tl-md rounded-br-md z-10">
             {selectedVariant.discount} OFF
           </div>
         )}
@@ -114,7 +114,7 @@ const CardItem = (props) => {
           {[...Array(5)].map((_, i) => {
             const fillPercent = Math.max(0, Math.min(1, rating - i));
             return (
-              <div key={i} className="relative w-4 h-4">
+              <div key={i} className="relative w-3 h-3">
                 <svg
                   viewBox="0 0 20 20"
                   className="absolute top-0 left-0 w-full h-full text-gray-300"
@@ -141,22 +141,22 @@ const CardItem = (props) => {
         <span className="text-xs text-gray-500 ml-1">({reviews})</span>
       </div>
 
-      <div className="flex justify-between items-center mt-2">
-        <div className="flex gap-[0.20rem]">
-          <p className="font-semibold text-[0.86rem] text-green-800">
-            ₹{currentPrice}
-          </p>
+      <div className="flex justify-between items-center">
+        <div>
           {discountValue > 0 && (
-            <p className="font-semibold text-[0.70rem] py-[0.15rem] text-gray-400 line-through">
+            <p className="font-semibold font-mono text-[.95rem]  text-gray-400 line-through">
               ₹{originalPrice}
             </p>
           )}
+          <p className="font-semibold font-mono text-[1.05rem] text-green-800">
+            ₹{currentPrice}
+          </p>
         </div>
 
         {isOutOfStock ? (
           <button
             disabled
-            className="bg-gray-300 text-gray-600 px-2 py-1 rounded-md text-xs cursor-not-allowed"
+            className="bg-gray-300 text-gray-600 px-2 py-1 mt-4 rounded-md text-[0.80rem] cursor-not-allowed"
           >
             Unavailable
           </button>
@@ -170,7 +170,7 @@ const CardItem = (props) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.25 }}
-                className="bg-gradient-to-r from-green-800 via-green-700 to-green-600 border rounded-md text-[0.78rem] font-semibold text-green-100 px-3 py-1 hover:bg-green-400 transition-transform transform hover:scale-105 duration-150"
+                className="bg-gradient-to-r from-green-800 via-green-700 to-green-600 mt-3 border rounded-md text-[0.90rem] font-semibold text-green-100 px-3 py-1 hover:bg-green-400 transition-transform transform hover:scale-105 shadow-green-900 duration-150"
               >
                 Add
               </motion.button>
@@ -181,20 +181,20 @@ const CardItem = (props) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.25 }}
-                className="flex items-center gap-[0.4rem]"
+                className="flex items-center mt-4 gap-[0.5rem] border border-gray-200 rounded"
               >
                 <button
                   onClick={decrease}
-                  className="bg-red-300 text-xs pt-[0.3rem] py-[0.25rem] px-[0.5rem] rounded text-red-700 font-bold hover:bg-red-400"
+                  className="bg-red-300 border border-red-700 text-[.80rem]  py-[0.25rem] px-[0.55rem] rounded text-red-700 font-bold hover:bg-red-400"
                 >
                   −
                 </button>
-                <span className="text-green-800 text-xs font-bold">
+                <span className="text-green-800 text-[.80rem]  font-bold">
                   {quantity}
                 </span>
                 <button
                   onClick={increase}
-                  className="bg-green-300 text-xs pt-[0.3rem] py-[0.25rem] px-[0.5rem] rounded text-green-700 font-bold hover:bg-green-400"
+                  className="bg-green-300 text-[.80rem] border border-green-700  py-[0.25rem] px-[0.55rem] rounded text-green-700 font-bold hover:bg-green-400"
                 >
                   +
                 </button>

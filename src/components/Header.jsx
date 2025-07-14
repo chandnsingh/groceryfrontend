@@ -61,7 +61,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
   return (
     <div className="relative z-50">
       <div>
-        <nav className="flex justify-between sm:justify-center gap-5 items-center px-4 py-3 bg-white shadow-md">
+        <nav className="flex justify-between sm:justify-center gap-7 items-center px-4 py-3 bg-white shadow-md">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img
@@ -105,7 +105,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
             {/* ✅ My Orders Link */}
             {user && (
               <Link to="/my-orders">
-                <div className="flex shadow-md text-[.83rem] font-semibold text-green-600 hover:underline bg-green-100 px-3 py-2 rounded-md">
+                <div className="flex shadow-md text-[.83rem] font-bold text-green-600 bg-green-100 hover:bg-green-200 transition-transform hover:scale-[1.05] px-3 py-2 rounded-md">
                   <img
                     className="h-5 mr-2"
                     src="https://cdn-icons-png.flaticon.com/128/6815/6815043.png"
@@ -119,7 +119,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
             {!user ? (
               <Link
                 to="/auth"
-                className="shadow-md py-2 rounded-md bg-blue-200 text-blue-700 font-semibold text-[0.83rem] px-3"
+                className=" shadow-md py-2 rounded-md bg-blue-200 hover:bg-blue-300 transition-transform hover:scale-[1.05] text-blue-700 font-semibold text-[0.83rem] px-3"
               >
                 Login / Signup
               </Link>
@@ -139,10 +139,10 @@ const Header = ({ searchTerm, setSearchTerm }) => {
                   </span>
                 </button>
                 {showDropdown && (
-                  <div className="absolute right-0 mt-2 w-32 bg-white border rounded shadow z-50">
+                  <div className="absolute right-0 mt-2 inline hover:bg-red-100 cursor-pointer px-3 py-1 bg-white border rounded-lg border-gray-400  shadow z-50">
                     <button
                       onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500"
+                      className="w-full text-sm text-center  text-red-500"
                     >
                       Logout
                     </button>
@@ -176,7 +176,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
       {/* Sidebar Menu (Mobile) */}
       <div className="mobile">
         <div
-          className={`fixed top-0 left-0 h-full w-[75%] max-w-sm bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+          className={`fixed top-0 left-0 h-full w-[75%] max-w-sm bg-white/85 shadow-lg z-50 transform transition-transform duration-300 ${
             menuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -194,7 +194,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-4 p-4">
+          <nav className="flex  flex-col gap-4 p-4">
             <Link
               to="/"
               onClick={toggleMenu}

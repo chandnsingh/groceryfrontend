@@ -94,14 +94,14 @@ const ProductCategory = ({ onCategorySelect }) => {
               <div
                 key={index}
                 onClick={() => handleCategoryClick(cat.name)}
-                className="cursor-pointer flex flex-col items-center py-3 bg-[#edf2f7] border border-gray-200 rounded-lg shadow hover:shadow-md hover:bg-[#e0ecf7] transition-transform"
+                className="cursor-pointer flex flex-col items-center py-[.4rem] bg-[#edf2f7] border border-gray-200 rounded-lg shadow hover:shadow-md hover:bg-[#e0ecf7] transition-transform"
               >
                 <img
                   src={cat.image}
                   alt={cat.name}
                   className="w-14 h-14 object-cover rounded mb-2"
                 />
-                <span className="text-xs font-semibold capitalize text-gray-700">
+                <span className="text-xs text-center font-semibold capitalize text-gray-700">
                   {cat.name}
                 </span>
               </div>

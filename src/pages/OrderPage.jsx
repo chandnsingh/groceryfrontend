@@ -3,6 +3,7 @@ import { CartContext } from "../context/CartContext";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import ScrollToTop from "../components/ScrollToTop";
 
 const OrderPage = () => {
   const { cart, clearCart } = useContext(CartContext);
@@ -110,6 +111,7 @@ const OrderPage = () => {
   return (
     <>
       <AnimatePresence>
+        <ScrollToTop />
         {showHurray && (
           <motion.div
             className="mx-auto  max-w-[73rem] min-h-[80vh] flex justify-center"
@@ -119,7 +121,7 @@ const OrderPage = () => {
             transition={{ duration: 0.5 }}
           >
             <motion.h1
-              className="text-6xl font-bold text-green-600 flex items-center justify-center h-110"
+              className="text-3xl md:text-6xl font-bold text-green-600 flex items-center justify-center h-110"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ opacity: 0 }}

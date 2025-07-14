@@ -19,6 +19,7 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       try {
         const res = await api.get(`/products/${id}`);
+
         setProduct(res.data);
         setSelectedVariant(res.data.variants?.[0] || null);
       } catch (err) {
@@ -39,7 +40,42 @@ const ProductPage = () => {
     };
   }, [previewSrc]);
 
-  if (!product || !selectedVariant) return <div className="p-8"></div>;
+  if (!product || !selectedVariant)
+    return (
+      <div className="max-w-5xl mx-auto m-5 px-4 py-6 animate-pulse">
+        <div className="flex flex-col md:flex-row gap-5 md:gap-15">
+          {/* Left Skeleton for Image */}
+          <div className="w-full md:w-[46%] h-[400px] bg-gray-200 rounded-xl"></div>
+
+          {/* Right Skeleton for Info */}
+          <div className="w-full md:w-1/2 space-y-4">
+            <div className="h-8 bg-gray-200 rounded w-3/4"></div>
+            <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+
+            <div className="h-4 bg-gray-200 rounded w-1/3 mt-3"></div>
+            <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+
+            <div className="h-10 bg-gray-200 rounded w-40 mt-4"></div>
+
+            <div className="h-4 bg-gray-200 rounded w-full mt-5"></div>
+            <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+
+            <div className="h-10 bg-gray-200 rounded w-1/3 mt-5"></div>
+          </div>
+        </div>
+
+        {/* Features & Details Skeleton */}
+        <div className="border border-gray-200 shadow-md rounded-lg mt-10 p-5 space-y-3">
+          <div className="h-6 bg-gray-200 rounded w-1/4"></div>
+          <div className="h-4 bg-gray-200 rounded w-full"></div>
+          <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+          <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+          <div className="h-4 bg-gray-200 rounded w-3/6"></div>
+          <div className="h-4 bg-gray-200 rounded w-2/6"></div>
+        </div>
+      </div>
+    );
 
   const { name, image, description, category, inStock, rating, reviews } =
     product;
@@ -130,7 +166,7 @@ const ProductPage = () => {
               </span>
             </p>
             {discountValue > 0 && (
-              <p className="text-green-900 font-bold text-xs px-2 py-1 rounded-md inline bg-[#96caaa] mb-1">
+              <p className="text-white font-bold text-xs px-2 py-1 rounded-md inline bg-[#70d197] mb-1">
                 {discountValue}% OFF
               </p>
             )}

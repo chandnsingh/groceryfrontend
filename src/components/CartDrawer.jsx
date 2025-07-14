@@ -25,6 +25,13 @@ const CartDrawer = () => {
     setShowCartDrawer(false);
     navigate("/cart");
   };
+  const handleClickWithDelay = () => {
+    setTimeout(() => {
+      // Your actual action here (navigation, open cart, etc.)
+      console.log("Action performed after delay");
+      handleClick(); // Your existing function
+    }, 100); // 100ms delay
+  };
 
   return (
     <AnimatePresence>
@@ -32,12 +39,13 @@ const CartDrawer = () => {
         initial={{ y: 200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 200, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="fixed bottom-13 left-1/2 -translate-x-1/2 z-50 bg-green-700 text-white rounded-full px-5 py-2 flex items-center shadow-xl w-[50%] max-w-md sm:hidden cursor-pointer"
-        onClick={handleClick}
+        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        whileTap={{ scale: 0.8 }}
+        className="fixed bottom-15 left-1/2 active:bg-green-900  transition -translate-x-1/2 z-50 bg-green-700/98 text-white rounded-full py-2 flex gap-3 items-center shadow-xl max-w-md sm:hidden cursor-pointer"
+        onClick={handleClickWithDelay}
       >
         {/* Product Thumbnails */}
-        <div className="flex -space-x-3 mr-4">
+        <div className="flex -space-x-3 pl-3 ">
           {itemImages.map((src, index) => (
             <img
               key={index}
@@ -49,7 +57,7 @@ const CartDrawer = () => {
         </div>
 
         {/* Cart Info */}
-        <div className="flex-1">
+        <div className="flex-1 text-center">
           <p className="text-sm font-bold leading-tight">View cart</p>
           <p className="text-[0.70rem] text-white/90">
             {cart.length} ITEM{cart.length > 1 ? "S" : ""}
@@ -57,7 +65,7 @@ const CartDrawer = () => {
         </div>
 
         {/* Chevron icon */}
-        <div className="bg-green-700 hover:bg-green-800 rounded-full p-2 pointer-events-none">
+        <div className=" pr-3 text-bold rounded-full pointer-events-none">
           <ChevronRight size={20} />
         </div>
       </motion.div>

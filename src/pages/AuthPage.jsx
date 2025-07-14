@@ -62,7 +62,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto mt-10 bg-white shadow-lg p-6 rounded">
+    <div className="max-w-sm mx-auto mt-10 py-8 bg-gradient-to-r from-[#a0a0a0] via-[#cbcccc] to-[#ffffff] shadow-lg p-6 rounded-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">
         {isLogin ? "Log In" : "Sign Up"}
       </h2>
@@ -71,22 +71,22 @@ const AuthPage = () => {
         {!isLogin && (
           <input
             name="name"
-            placeholder="Full Name"
+            placeholder="enter your full name"
             value={form.name}
             onChange={handleChange}
             required
-            className="p-2 border rounded"
+            className="p-2 border placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-black border-gray-300"
           />
         )}
 
         <input
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="enter your email"
           value={form.email}
           onChange={handleChange}
           required
-          className="p-2 border rounded"
+          className="p-2 border placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-black border-gray-300"
         />
 
         {/* 🔒 Password with Toggle */}
@@ -94,11 +94,11 @@ const AuthPage = () => {
           <input
             name="password"
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
+            placeholder="enter the password"
             value={form.password}
             onChange={handleChange}
             required
-            className="p-2 border rounded w-full pr-10"
+            className="w-full p-2 border placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-black border-gray-300"
           />
           <button
             type="button"
@@ -126,8 +126,8 @@ const AuthPage = () => {
           disabled={loading}
           className={`${
             loading
-              ? "bg-green-300 cursor-not-allowed"
-              : "bg-green-600 hover:bg-green-700"
+              ? "bg-green-500 cursor-not-allowed"
+              : "bg-green-700 hover:bg-green-800"
           } text-white py-2 rounded`}
         >
           {loading
@@ -142,7 +142,10 @@ const AuthPage = () => {
 
       <p className="text-sm text-center mt-4">
         {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-        <button onClick={toggleMode} className="text-blue-500 underline">
+        <button
+          onClick={toggleMode}
+          className="text-blue-600 underline cursor-pointer"
+        >
           {isLogin ? "Sign Up" : "Log In"}
         </button>
       </p>

@@ -12,12 +12,12 @@ const MobileBottomNav = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white border-t border-gray-200 shadow-sm h-11 pt-4">
+    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white border-t border-gray-200 shadow-sm h-13 pt-4">
       <div className="flex justify-around items-center h-full pb-[env(safe-area-inset-bottom)]">
         <Link
           to="/"
           className={`flex flex-col items-center text-xs ${
-            isActive("/") ? "text-blue-600 font-semibold" : "text-gray-500"
+            isActive("/") ? "text-blue-600 font-bold" : "text-gray-500"
           }`}
         >
           <Home size={20} />
@@ -27,9 +27,7 @@ const MobileBottomNav = () => {
         <Link
           to="/search"
           className={`flex flex-col items-center text-xs ${
-            isActive("/search")
-              ? "text-blue-600 font-semibold"
-              : "text-gray-500"
+            isActive("/search") ? "text-blue-600 font-bold" : "text-gray-500"
           }`}
         >
           <Search size={20} />
@@ -39,7 +37,7 @@ const MobileBottomNav = () => {
         <Link
           to="/cart"
           className={`flex flex-col items-center text-xs ${
-            isActive("/cart") ? "text-blue-600 font-semibold" : "text-gray-500"
+            isActive("/cart") ? "text-blue-600 font-bold" : "text-gray-500"
           }`}
         >
           <ShoppingCart size={20} />
@@ -49,9 +47,7 @@ const MobileBottomNav = () => {
         <Link
           to="/my-orders"
           className={`flex flex-col items-center text-xs ${
-            isActive("/my-orders")
-              ? "text-blue-600 font-semibold"
-              : "text-gray-500"
+            isActive("/my-orders") ? "text-blue-600 font-bold" : "text-gray-500"
           }`}
         >
           <ListChecks size={20} />

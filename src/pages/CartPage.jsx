@@ -38,7 +38,7 @@ const CartPage = () => {
   const total = (mrpTotal - discountTotal).toFixed(2);
 
   return (
-    <div className="mx-auto px-4 py-6 max-w-[73rem] min-h-[80vh]">
+    <div className="mx-auto px-4 py-6 max-w-[73rem] mb-10 md:mb-0 sm:min-h-[80vh]">
       <h2 className="text-2xl font-bold">My Cart</h2>
 
       {cart.length === 0 ? (
@@ -46,15 +46,16 @@ const CartPage = () => {
           <img
             src="https://www.jiomart.com/msassets/images/empty-cart.svg"
             alt="empty"
+            className="w-30 md:w-40"
           />
           <p className="font-bold mt-4">Cart is empty</p>
-          <p className="font-semibold text-gray-700">
+          <p className="font-semibold text-center text-sm md:text-md text-gray-700">
             It's a nice day to buy the items you saved for later!
           </p>
-          <p>
+          <p className="font-semibold text-center text-sm md:text-md">
             or{" "}
             <Link
-              className="text-blue-700 font-bold hover:underline mt-1"
+              className="text-blue-700 font-bold hover:scale-102 mt-1"
               to="/"
             >
               continue shopping

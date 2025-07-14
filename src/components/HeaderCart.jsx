@@ -9,7 +9,7 @@ const HeaderCart = () => {
 
   return (
     <Link to="/cart">
-      <div className="shadow-md py-2 px-3 rounded-md bg-orange-100 text-orange-700 font-semibold text-[0.83rem] flex items-center relative">
+      <div className="shadow-md py-2 px-3 rounded-md bg-orange-100 hover:bg-orange-200 transition-transform hover:scale-[1.05] text-orange-700 font-semibold text-[0.83rem] flex items-center relative ">
         <img
           className="h-5 mr-2"
           src="https://cdn-icons-png.flaticon.com/128/4290/4290854.png"
