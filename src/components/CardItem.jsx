@@ -144,11 +144,11 @@ const CardItem = (props) => {
       <div className="flex justify-between items-center">
         <div>
           {discountValue > 0 && (
-            <p className="font-semibold font-mono text-[.95rem]  text-gray-400 line-through">
+            <p className="font-semibold  text-[1rem]  text-gray-400 line-through">
               ₹{originalPrice}
             </p>
           )}
-          <p className="font-semibold font-mono text-[1.05rem] text-green-800">
+          <p className="font-semibold text-[1.15rem] text-green-800">
             ₹{currentPrice}
           </p>
         </div>
@@ -170,7 +170,7 @@ const CardItem = (props) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.25 }}
-                className="bg-gradient-to-r from-green-800 via-green-700 to-green-600 mt-3 border rounded-md text-[0.90rem] font-semibold text-green-100 px-3 py-1 hover:bg-green-400 transition-transform transform hover:scale-105 shadow-green-900 duration-150"
+                className="bg-gradient-to-r from-green-800 via-green-700 to-green-600 mt-4 border rounded-md text-[0.90rem] font-semibold text-green-100 px-3 py-1 hover:bg-green-400 transition-transform transform hover:scale-105 shadow-green-900 duration-150"
               >
                 Add
               </motion.button>

@@ -62,7 +62,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto mt-10 py-8 bg-gradient-to-r from-[#a0a0a0] via-[#cbcccc] to-[#ffffff] shadow-lg p-6 rounded-lg">
+    <div className="max-w-[22rem] sm:max-w-sm mx-auto mt-10 py-8 bg-gradient-to-r from-[#a0a0a0] via-[#cbcccc] to-[#ffffff] shadow-lg p-6 rounded-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">
         {isLogin ? "Log In" : "Sign Up"}
       </h2>
