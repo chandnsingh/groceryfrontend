@@ -39,7 +39,7 @@ const CartDrawer = () => {
         initial={{ y: 200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 200, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        transition={{ type: "spring", stiffness: 250, damping: 15 }}
         whileTap={{ scale: 0.8 }}
         className="fixed bottom-15 left-1/2 active:bg-green-900  transition -translate-x-1/2 z-50 bg-green-700/98 text-white rounded-full py-2 flex gap-3 items-center shadow-xl max-w-md sm:hidden cursor-pointer"
         onClick={handleClickWithDelay}

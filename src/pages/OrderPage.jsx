@@ -79,7 +79,7 @@ const OrderPage = () => {
       setTimeout(() => {
         setShowHurray(false);
         navigate("/");
-      }, 4000);
+      }, 3300);
     } catch (err) {
       console.error("❌ Order error:", err);
       alert("Failed to place order. Try again.");
@@ -121,7 +121,7 @@ const OrderPage = () => {
             transition={{ duration: 0.5 }}
           >
             <motion.h1
-              className="text-3xl md:text-6xl font-bold text-green-600 flex items-center justify-center h-110"
+              className="text-2xl md:text-6xl font-bold text-green-600 flex items-center justify-center h-110"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
