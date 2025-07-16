@@ -12,7 +12,7 @@ const MobileBottomNav = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white border-t border-gray-200 shadow-sm h-13 pt-4">
+    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white border-t border-gray-200 shadow-sm h-15 ">
       <div className="flex justify-around items-center h-full pb-[env(safe-area-inset-bottom)]">
         <Link
           to="/"

@@ -124,26 +124,41 @@ export const CartProvider = ({ children }) => {
   };
 
   const decreaseQuantity = async (productId, selectedUnit) => {
-    const item = cart.find(
+    const optimisticCart = [...cart];
+    const itemIndex = optimisticCart.findIndex(
       (item) =>
         (item.productId?._id || item.productId) === productId &&
         item.selectedUnit === selectedUnit
     );
 
-    if (!item) return;
+    if (itemIndex === -1) return;
 
+    const item = optimisticCart[itemIndex];
     const newQuantity = item.quantity - 1;
-    if (newQuantity < 1) return await removeFromCart(productId, selectedUnit);
+
+    if (newQuantity < 1) {
+      optimisticCart.splice(itemIndex, 1);
+    } else {
+      optimisticCart[itemIndex] = {
+        ...item,
+        quantity: newQuantity,
+      };
+    }
+
+    setCart(optimisticCart); // ✅ Optimistic update
+    triggerCartDrawer();
 
     try {
-      await axios.post(
-        `${BASE_URL}/cart`,
-        { productId, selectedUnit, price: item.price, quantity: newQuantity },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-
-      await fetchCart();
-      triggerCartDrawer();
+      if (newQuantity < 1) {
+        await removeFromCart(productId, selectedUnit);
+      } else {
+        await axios.post(
+          `${BASE_URL}/cart`,
+          { productId, selectedUnit, price: item.price, quantity: newQuantity },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        fetchCart(); // Background sync
+      }
     } catch (err) {
       console.error(
         "❌ Error decreasing quantity:",
@@ -153,11 +168,20 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = async (productId, selectedUnit) => {
+    // Optimistic Update First
+    const optimisticCart = cart.filter(
+      (item) =>
+        (item.productId?._id || item.productId) !== productId ||
+        item.selectedUnit !== selectedUnit
+    );
+    setCart(optimisticCart); // ✅ Instantly update UI
+
     try {
       await axios.delete(`${BASE_URL}/cart/${productId}?unit=${selectedUnit}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      await fetchCart();
+      // Optionally re-fetch to keep synced with backend
+      fetchCart();
     } catch (err) {
       console.error(
         "❌ Error removing from cart:",

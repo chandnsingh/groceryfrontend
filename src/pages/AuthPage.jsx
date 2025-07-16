@@ -62,7 +62,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="max-w-[22rem] sm:max-w-sm mx-auto mt-10 py-8 bg-gradient-to-r from-[#a0a0a0] via-[#cbcccc] to-[#ffffff] shadow-lg p-6 rounded-lg">
+    <div className="max-w-[22rem] sm:max-w-sm mx-auto mt-10 py-8 bg-gradient-to-r from-[#c8d5f4] via-[#e1e6f3] to-[#f7f8fa] shadow-lg p-6 rounded-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">
         {isLogin ? "Log In" : "Sign Up"}
       </h2>
@@ -75,7 +75,7 @@ const AuthPage = () => {
             value={form.name}
             onChange={handleChange}
             required
-            className="p-2 border placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-black border-gray-300"
+            className="p-2 border-2 placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-blue-300 border-gray-300"
           />
         )}
 
@@ -86,7 +86,7 @@ const AuthPage = () => {
           value={form.email}
           onChange={handleChange}
           required
-          className="p-2 border placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-black border-gray-300"
+          className="p-2 border-2 placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-blue-300 border-gray-300"
         />
 
         {/* 🔒 Password with Toggle */}
@@ -98,7 +98,7 @@ const AuthPage = () => {
             value={form.password}
             onChange={handleChange}
             required
-            className="w-full p-2 border placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-black border-gray-300"
+            className="w-full p-2 border-2 placeholder:font-normal shadow-sm placeholder:text-sm placeholder:text-gray-400 rounded-md bg-white/90 outline-none focus:border-blue-300 border-gray-300"
           />
           <button
             type="button"

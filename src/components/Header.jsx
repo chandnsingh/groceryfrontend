@@ -249,9 +249,9 @@ const Header = ({ searchTerm, setSearchTerm }) => {
               <Link
                 to="/auth"
                 onClick={toggleMenu}
-                className="text-sm font-medium bg-blue-300 text-blue-700 px-4 py-2 rounded"
+                className="text-sm font-medium text-center bg-blue-300 active:bg-blue-400 text-blue-800 px-4 py-2 rounded"
               >
-                Login / Signup
+                Login / Sign Up
               </Link>
             ) : (
               <button

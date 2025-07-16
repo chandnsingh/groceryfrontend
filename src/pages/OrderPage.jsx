@@ -142,33 +142,33 @@ const OrderPage = () => {
         )}
       </AnimatePresence>
       {!showHurray && (
-        <div className="max-w-xl mx-auto p-6 bg-gradient-to-r from-[#d9ecdf] via-[#e8f0ea] to-[#ffffff] shadow rounded mt-6">
+        <div className="max-w-xl ml-2 mr-2  sm:mx-auto p-4 bg-gradient-to-r from-[#d9ecdf] via-[#e8f0ea] to-[#ffffff] shadow rounded mt-6">
           <h2 className="text-2xl font-bold mb-4">🛍️ Place Your Order</h2>
 
           <input
             name="name"
-            placeholder="Your Name"
+            placeholder="enter your Name"
             value={form.name}
             onChange={handleInputChange}
-            className="w-full mb-2 bg-white placeholder:font-normal border-2 focus:border-green-600 outline-none font-semibold p-2 px-3 rounded-xl border-gray-50 shadow-sm"
+            className="w-full mb-2 bg-white placeholder:text-gray-400  placeholder:font-normal border-2 focus:border-green-600 outline-none font-semibold p-2 px-3 rounded-xl border-gray-50 shadow-sm"
           />
           <input
             name="phone"
-            placeholder="Phone Number"
+            placeholder="enter your phone number"
             value={form.phone}
             onChange={handleInputChange}
-            className="w-full mb-2 p-2 bg-white  focus:border-green-600 border-2 outline-none placeholder:font-normal font-semibold px-3 rounded-xl border-gray-50 shadow-sm"
+            className="w-full mb-2 p-2 bg-white placeholder:text-gray-400  focus:border-green-600 border-2 outline-none placeholder:font-normal font-semibold px-3 rounded-xl border-gray-50 shadow-sm"
           />
           <textarea
             name="address"
-            placeholder="Delivery Address"
+            placeholder="enter you delivery address"
             value={form.address}
             onChange={handleInputChange}
-            className="w-full mb-2 p-2 bg-white resize-none  focus:border-green-600 outline-none placeholder:font-normal font-semibold px-3 border-2 rounded-xl border-gray-50 shadow-sm"
+            className="w-full mb-2 p-2 bg-white resize-none placeholder:text-gray-400   focus:border-green-600 outline-none placeholder:font-normal font-semibold px-3 border-2 rounded-xl border-gray-50 shadow-sm"
           />
 
           <div className="mb-4 border-2 shadow-md rounded-xl border-gray-200 p-3 bg-gray-50">
-            <h3 className="font-bold mb-2">🧾 Order Summary:</h3>
+            <h3 className="font-bold text-xl mb-5">🧾 Order Summary:</h3>
             {cart.length === 0 ? (
               <p className="text-sm text-gray-500">Your cart is empty.</p>
             ) : (

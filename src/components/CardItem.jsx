@@ -142,13 +142,13 @@ const CardItem = (props) => {
       </div>
 
       <div className="flex justify-between items-center">
-        <div>
+        <div className="mt-[0.4rem]">
           {discountValue > 0 && (
-            <p className="font-semibold  text-[.8rem]  text-gray-400 line-through">
+            <p className="font-semibold  text-[.75rem]  text-gray-400 line-through">
               ₹{originalPrice}
             </p>
           )}
-          <p className="font-semibold text-[1rem] text-green-800">
+          <p className="font-semibold text-[.95rem] text-green-800">
             ₹{currentPrice}
           </p>
         </div>
