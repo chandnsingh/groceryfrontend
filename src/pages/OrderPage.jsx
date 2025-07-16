@@ -9,6 +9,11 @@ const OrderPage = () => {
   const { cart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [showHurray, setShowHurray] = useState(false);
+  useEffect(() => {
+    if (showHurray) {
+      window.scrollTo(0, 0);
+    }
+  }, [showHurray]);
 
   const [form, setForm] = useState({
     name: "",

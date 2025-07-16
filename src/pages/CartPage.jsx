@@ -204,7 +204,7 @@ const CartPage = () => {
             <motion.div whileHover={{ scale: 1.03 }} className="w-full">
               <Link
                 to="/order"
-                className="bg-green-600 text-lg text-white shadow-lg font-semibold px-3 max-w-5xl py-3 rounded-xl text-center hover:bg-green-700 transition"
+                className="bg-green-700 active:bg-green-800 w-full h-full text-center justify-center text-lg text-white shadow-lg font-semibold px-3 max-w-5xl py-3 rounded-xl hover:scale-[1.05] transition-transform block"
               >
                 Place Order
               </Link>
