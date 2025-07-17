@@ -49,10 +49,10 @@ const CartPage = () => {
             className="w-30 md:w-40"
           />
           <p className="font-bold mt-4">Cart is empty</p>
-          <p className="font-semibold text-center text-sm md:text-md text-gray-700">
+          <p className="font-semibold text-center text-[0.82rem] md:text-md text-gray-700">
             It's a nice day to buy the items you saved for later!
           </p>
-          <p className="font-semibold text-center text-sm md:text-md">
+          <p className="font-semibold text-center text-[0.82rem] md:text-md">
             or{" "}
             <Link
               className="text-blue-700 font-bold hover:scale-102 mt-1"

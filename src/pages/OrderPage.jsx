@@ -9,6 +9,7 @@ const OrderPage = () => {
   const { cart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [showHurray, setShowHurray] = useState(false);
+
   useEffect(() => {
     if (showHurray) {
       window.scrollTo(0, 0);
@@ -84,7 +85,7 @@ const OrderPage = () => {
       setTimeout(() => {
         setShowHurray(false);
         navigate("/");
-      }, 3300);
+      }, 2000);
     } catch (err) {
       console.error("❌ Order error:", err);
       alert("Failed to place order. Try again.");
@@ -147,6 +148,7 @@ const OrderPage = () => {
 
           <input
             name="name"
+            type="name"
             placeholder="enter your Name"
             value={form.name}
             onChange={handleInputChange}
@@ -154,17 +156,20 @@ const OrderPage = () => {
           />
           <input
             name="phone"
+            type="number"
             placeholder="enter your phone number"
             value={form.phone}
             onChange={handleInputChange}
             className="w-full mb-2 p-2 bg-white placeholder:text-gray-400  focus:border-green-600 border-2 outline-none placeholder:font-normal font-semibold px-3 rounded-xl border-gray-50 shadow-sm"
           />
-          <textarea
+
+          <input
             name="address"
             placeholder="enter you delivery address"
             value={form.address}
             onChange={handleInputChange}
-            className="w-full mb-2 p-2 bg-white resize-none placeholder:text-gray-400   focus:border-green-600 outline-none placeholder:font-normal font-semibold px-3 border-2 rounded-xl border-gray-50 shadow-sm"
+            autoComplete="on"
+            className="w-full mb-2 p-2 pb-8 bg-white resize-none placeholder:text-gray-400 focus:border-green-600 outline-none placeholder:font-normal font-semibold px-3 border-2 rounded-xl border-gray-50 shadow-sm"
           />
 
           <div className="mb-4 border-2 shadow-md rounded-xl border-gray-200 p-3 bg-gray-50">
