@@ -83,7 +83,7 @@ const OrderDetails = () => {
 
               return (
                 <li key={idx}>
-                  <div className="flex justify-between sm:p-[.6rem]">
+                  <div className="flex justify-between py-[.6rem] sm:p-[.6rem]">
                     <div className="flex gap-4 ">
                       <div className="w-15 border rounded-md border-gray-300 shadow-lg">
                         <img
@@ -95,14 +95,14 @@ const OrderDetails = () => {
 
                       <div className="mt-1">
                         <h1 className="font-bold text-md">{item.name}</h1>
-                        <p className="text-gray-400 font-semibold mt-2">
+                        <p className="text-gray-400 font-semibold mt-1">
                           {" "}
                           ({unit}) × {quantity}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 mt-1">
+                    <div className="flex flex-col gap-1 mt-[.35rem]">
                       {item.discount && item.discount !== "0%" && (
                         <span className="text-xs font-sans font-semibold text-green-600">
                           [{item.discount} OFF]
@@ -157,7 +157,7 @@ const OrderDetails = () => {
             </p>
           </div>
           <div>
-            <p>Payment</p>
+            <p>Payment Status</p>
             <p className="font-semibold text-blue-400">Pending</p>
           </div>
           <div>
