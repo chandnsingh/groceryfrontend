@@ -55,7 +55,7 @@ const OrderDetails = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded-lg">
       <Link
-        className=" bg-gray-50 border text-xl rounded-lg font-semibold border-gray-200 shadow-sm hover:bg-gray-200 cursor-pointer px-2 py-1"
+        className=" bg-gray-100 border  text-2xl rounded-lg font-bold border-gray-200 shadow-sm hover:bg-gray-200 cursor-pointer px-2 pb-2 pt-1"
         to="/my-orders"
       >
         {"←"}
